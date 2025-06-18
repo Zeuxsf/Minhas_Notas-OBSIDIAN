@@ -37,6 +37,12 @@
  ![[Pasted image 20250212091852.png]]
 
 # IMPORT'S (Bibliotecas Python)
+- DICA: Todos os seus arquivos `.py` são módulos importáveis
+Ex.:
+![[Pasted image 20250618115704.png]]
+O exemplo acima mostra import's q eu fiz de um outro código meu, importando funções que estavam lá dentro e que seriam úteis pro meu código principal
+
+--- 
 ## Math
 - Biblioteca Matemática/De equações do Python
 - `import math` : para importar todos os comandos de uma vez da biblioteca 
@@ -399,20 +405,13 @@ lembrar de executar esse programa dentro da pasta em que o código se encontra, 
 # HELP()
 
 - O comando ==help()== é uma ótima pedida quando se quiser aprender alguma função nova e aprender mais sobre a linguagem:
-- ![[Pasted image 20250313085643.png]]
+ ![[Pasted image 20250313085643.png]]
 - Também existe outra maneira de aprender sobre os comandos, é só por:
-- ![[Pasted image 20250313090045.png]]
+ ![[Pasted image 20250313090045.png]]
 (Input pode ser trocado por qualquer outro comando)
 - Para ==Documentar== uma função criada é só utilizar uma docstring:
-- ![[Pasted image 20250313091145.png]]
+ ![[Pasted image 20250313091145.png]]
 
-
-# CRIAÇÃO DE MÓDULOS
-- Para criar módulos, você precisa criar um py file na mesma pasta que o programa principal, colocar todos os defs e comandos que você precisa dentro desse file. Depois disso, basta dar um ==import nomefile== ou ==from nomefile import comando==
-
-- Para a criação de um Pacote, é necessário colocar um ==init==
-- ![[Pasted image 20250317084450.png]]
-- ==(O CÓDIGO DO MÓDULO TEM QUE SER JOGADO DENTRO DO INIT)==
 
 # TRATAMENTO DE ERROS
 
