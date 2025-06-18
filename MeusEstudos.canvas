@@ -1,0 +1,29 @@
+{
+	"nodes":[
+		{"id":"999513787cc7c66d","x":-200,"y":260,"width":400,"height":240,"color":"5","type":"file","file":"Estudos/MySQL/MySQL.md"},
+		{"id":"3b0d1ad9519feb03","x":303,"y":-39,"width":250,"height":118,"color":"3","type":"text","text":"Minha linguagem de programação favorita/principal no momento"},
+		{"id":"ed122798f4acf9ba","x":-700,"y":49,"width":250,"height":60,"color":"1","type":"text","text":"Minhas Tecnologias"},
+		{"id":"df8b7a0468b40905","x":649,"y":-10,"width":250,"height":60,"color":"3","type":"text","text":"Criei meus primeiros projetos reais/funcionais"},
+		{"id":"f9a1f3cf1d4110d3","x":1000,"y":-64,"width":250,"height":169,"color":"3","type":"text","text":"Linguagem Ótima para automação, IA e essas áreas emergentes no mundo da tecnologia atual"},
+		{"id":"40bdb5fa8a1e8969","x":-200,"y":-39,"width":400,"height":220,"color":"3","type":"file","file":"Estudos/Python/Python.md"},
+		{"id":"aa0558d0a7b04bd2","x":-200,"y":-340,"width":400,"height":220,"color":"6","type":"file","file":"Estudos/Algorítimos-VisualG/Algorítimos-VisualG.md"},
+		{"id":"dc48f93dff3c3abd","x":680,"y":290,"width":250,"height":91,"color":"5","type":"text","text":"Muito utilizado no mercado de trabalho. Habilidade essencial"},
+		{"id":"9227a81f8dc3b97b","x":1040,"y":260,"width":250,"height":152,"color":"5","type":"text","text":"Comecei a estudar o assunto devido a uma oportunidade de experiência no mercado de trabalho"},
+		{"id":"616a03fdd20833c5","x":303,"y":311,"width":250,"height":50,"color":"5","type":"text","text":"Essencial para a criação de bancos de dados"},
+		{"id":"81c86a009b00510e","x":303,"y":-310,"width":250,"height":60,"color":"6","type":"text","text":"Curso de Lógica de programação"},
+		{"id":"13906385fe0eca19","x":649,"y":-340,"width":250,"height":120,"color":"6","type":"text","text":"Me ajudou a desenvolver meus primeiros projetos pessoais e pensar por conta própria"}
+	],
+	"edges":[
+		{"id":"1f8d7914ef8fba89","fromNode":"ed122798f4acf9ba","fromSide":"right","toNode":"40bdb5fa8a1e8969","toSide":"left","color":"1"},
+		{"id":"0abe1820858d5efb","fromNode":"ed122798f4acf9ba","fromSide":"right","toNode":"aa0558d0a7b04bd2","toSide":"left","color":"1"},
+		{"id":"7b6b4d05712d7b9e","fromNode":"ed122798f4acf9ba","fromSide":"right","toNode":"999513787cc7c66d","toSide":"left","color":"1"},
+		{"id":"511fbef5990c70ca","fromNode":"aa0558d0a7b04bd2","fromSide":"right","toNode":"81c86a009b00510e","toSide":"left","color":"6"},
+		{"id":"41e1676fe267978f","fromNode":"81c86a009b00510e","fromSide":"right","toNode":"13906385fe0eca19","toSide":"left","color":"6"},
+		{"id":"62863f38d99abdf3","fromNode":"40bdb5fa8a1e8969","fromSide":"right","toNode":"3b0d1ad9519feb03","toSide":"left","color":"3"},
+		{"id":"15e7bf4c8521e241","fromNode":"3b0d1ad9519feb03","fromSide":"right","toNode":"df8b7a0468b40905","toSide":"left","color":"3"},
+		{"id":"547a658abdfadce0","fromNode":"df8b7a0468b40905","fromSide":"right","toNode":"f9a1f3cf1d4110d3","toSide":"left","color":"3"},
+		{"id":"9043a3945e6eea65","fromNode":"999513787cc7c66d","fromSide":"right","toNode":"616a03fdd20833c5","toSide":"left","color":"5"},
+		{"id":"9bf1d701bcd9d077","fromNode":"616a03fdd20833c5","fromSide":"right","toNode":"dc48f93dff3c3abd","toSide":"left","color":"5"},
+		{"id":"9b6aacac21066403","fromNode":"dc48f93dff3c3abd","fromSide":"right","toNode":"9227a81f8dc3b97b","toSide":"left","color":"5"}
+	]
+}
