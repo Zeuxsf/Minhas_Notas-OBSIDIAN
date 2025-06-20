@@ -1,14 +1,14 @@
 # BÁSICOS
 
-### Como criar um banco de dados?
+## Como criar um banco de dados?
 - Use o comando `CREATE DATABASE NOME_DADOS;` (O `;` é melhor pra quando for usar vários comandos de uma vez)
 - Antes de executar qualquer comando nesse banco de dados, use o comando `USE NOME_DADOS`, pro workbench saber em qual banco de dados você está usando
 - Para um Banco de Dados que aceite acentuações, mais usado pelo português brasileiro. use esses comandos:
 ![[Pasted image 20250613101327.png]]
-### E como eu apago?
+## E como eu apago?
 - Use o comando `DROP DATABASE NOME_DADOS`
 - Esse comando também funciona para apagar tabelas: `DROP TABLE NOME_TABELA`
-### Como criar tabelas?
+## Como criar tabelas?
 - Use o comando `CREATE TABLE NOME_TABELA (`
 campo1,
 campo2,
@@ -25,12 +25,60 @@ EXEMPLOS de INDICADORES:
 ![[Pasted image 20250611103250.png]]
  - Uma tabela padronizada para cadastro de pessoas:
  ![[Pasted image 20250613103618.png]]
-# FUNÇÕES
-### Como inserir dados em tabelas?
+# COMANDOS
+## Como inserir dados em tabelas? Comando INSERT
  ![[Pasted image 20250613110500.png]]
-### Como acesso os dados inseridos na tabela?
+## Como acesso os dados inseridos na tabela? Comando SELECT
+
+### SELECT
+- Comando pra acessar os dados de uma tabela:
  ![[Pasted image 20250613110739.png]]
-### Como editar uma tabela existente?
+ 
+ - E se eu quiser ver os dados em ordem alfabética ( geralmente pelo nome ), ou por data de nascimento?
+ Use o comando `ORDER BY dados`
+ Ex.:
+  ![[Pasted image 20250620094944.png]]
+  
+  - Posso ordenar por mais de um parâmetro?
+  Sim, só colocar os parâmetros que você quer depois do ORDER BY
+  Ex.:
+  ![[Pasted image 20250620100219.png]]
+
+  - E se eu quiser ordenar, mas em ordem Decrescente?
+  Use o comando `DESC` depois da referência que você passou:
+  ![[Pasted image 20250620095157.png]]
+
+- E se eu quiser ver apenas um dado específico da tabela? Apenas o nome, por exemplo
+O comando é praticamente o mesmo dos anteriores, a diferença é que no lugar do `*`, você coloca apenas os dados que vc quer ver, você pode colocar quantos dados quiser
+Ex.:
+![[Pasted image 20250620095849.png]]
+Esse comando vai pegar apenas o nome e a descrição dos cursos dentro da tabela
+
+- Quer filtrar linhas com dados específicos? Também tem como
+Use o comando `WHERE` e informe os parâmetros
+Ex.:
+![[Pasted image 20250620102040.png]]
+Da pra usar diverso parâmetros depois do `WHERE`:
+![[Pasted image 20250620103406.png]]
+- O sinal de diferente no MySQL é assim: `<>` ( coloquei aqui pois é diferente dos sinais de diferença que vejo em outras linguagens)
+
+#### Tem como filtrar linhas de maneiras ainda mais específicas
+
+- Usando o comando `BETWEEN`
+Ex.:
+![[Pasted image 20250620103634.png]]
+Nesse exemplo aqui, vai filtrar o total de aulas entre 20 e 30, ou seja, não vai aparecer totaulas menores que 20 e nem maiores que 30
+
+- Usando o comando `IN`
+Ex.:
+![[Pasted image 20250620104151.png]]
+Nesse exemplo, vai aparecer apenas as linhas que tenham esses 3 anos em específico, linhas que não correspondem não irão aparecer
+
+- Exemplos de combinações:
+![[Pasted image 20250620104646.png]]
+![[Pasted image 20250620105115.png]]
+
+## Como editar uma tabela existente? Comando ALTER
 ![[Pasted image 20250616093118.png]]
 Use o comando `ALTER TABLE NOME_TABELA`
 - Para renomear uma tabela, use `RENAME TO NOVO_NOME_TABELA`
@@ -47,7 +95,7 @@ Use o comando `FIRST`
 ![[Pasted image 20250616103814.png]]
 - Para apagar uma coluna criada, como faz?
 Use o comando `DROP COLUMN NOME_COLUNA` ( não esqueça de usar `ALTER TABLE` antes do drop )
-### Como atualizar uma linha? (Dados da tabela)
+## Como atualizar uma linha? Comando UPDATE 
 - Use o comando `UPDATE NOME_TABELA`
 Ex.:
 ![[Pasted image 20250618090240.png]]
@@ -57,7 +105,7 @@ Vai setar um nome novo nos campos onde o id (chave primária, mais fácil de lid
 Só indicar oq vc quer alterar, após o SET 
 - Caso você precise informar ao `MySQL` que você só quer mudar apenas uma linha, pra não afetar a tabela inteira sem querer, use o comando `LIMIT 1`. Ex.:
 ![[Pasted image 20250618091238.png]]
-### Como deletar uma linha?
+## Como deletar uma linha? Comando DELETE
 - Use o comando `DELETE FROM NOME_TABELA`
 Ex.:
 ![[Pasted image 20250618092612.png]]
