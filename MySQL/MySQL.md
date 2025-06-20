@@ -64,3 +64,12 @@ Ex.:
 "Delete da tabela cursos, onde o ano for igual a 2055. Se limite á apenas as primeiras 2 linhas, mesmo se existir mais do que isso."
 - E se eu quiser DELETAR TODAS as linhas?
 Use o comando `TRUNCATE TABLE NOME_TABELA`
+# MySQL no Terminal
+- Para entrar no MySQL via terminal, use os seguintes comandos:
+Esse comando para acessar a pasta do servidor (Verifique a pasta em que o seu servidor está e modifique o comando se for preciso):
+`cd "C:\Program Files\MySQL\MySQL Server 8.0\bin"
+
+Esse comando pra acessar o servidor, ele vai pedir a senha que você cadastrou:
+`.\mysql.exe -u root -p
+
+Obs: Esses comandos funcionam no PowerShell, terminal da microsoft, recomendo uma busca no GPT caso não funcione na sua máquina atual

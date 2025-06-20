@@ -28,6 +28,10 @@
 - float = real
 - bool = logico (True, false)
 - str = string, caractere
+## Comandos Interessantes
+- Comando pra verificar o local de instalação dos executáveis. Abaixo, terá um exemplo desse comando usando o exe do Python:
+![[Pasted image 20250619210218.png]]
+O comando é o: `gcm python` 
 # CORES PARA O TERMINAL
 
 - Códigos para por cores no terminal de python:
@@ -610,7 +614,34 @@ O `Print` tem que ter o `.json()` pra ele poder imprimir o conteúdo da API, se 
 - Ou você pode formatar o código pra printar de um jeito mais agradável:
 ![[Pasted image 20250507095701.png]]
  ![[Pasted image 20250507095720.png]]
- 
+
+# VENV - Ambientes Virtuais
+
+- Ambientes virtuais são uma forma de fazer o seu código ser 'portátil', ou seja, usá-lo em outras máquinas sem maiores empecilhos, sem ficar instalando biblioteca por biblioteca e refazer na mão configurações específicas.
+
+- Como criar um Ambiente Virtual?
+Use o seguinte código no terminal (dentro da pasta do seu código, ou de preferência, dentro do terminal da sua IDE (VScode e afins)):
+`python -m venv venv`
+
+- E se eu criar um ambiente virtual em um código já Existente?
+Antes de criar o venv, use: `pip freeze > requirements.txt` no terminal. Esse código vai detectar todas libs que o projeto ta usando e vai salvar dentro do txt.
+
+Depois de ativar o venv, use: `pip install -r requirements.txt`. O comando vai instalar todas as libs do requirements.txt pra dentro do venv
+
+OBS: Sempre que terminar o proj, user o `pip freeze > requirements.txt` pra salvar as libs instaladas depois do ultimo comando
+
+- Como eu ativo o Ambiente?
+Bom, no powershell, terminal da Windows, que eu usei dentro do VScode
+O comando é esse: `.\venv\Scripts\Activate.ps1`
+
+Se der algum erro, vale pesquisar pra tentar resolver
+- E como eu desativo?
+Use o comando `deactivate` no terminal/powershell
+O terminal vai voltar a usar o Python Global
+
+Caso não funcione, você pode procurar maneiras pra resolver isso, ou, desativar pela própria IDE:
+VScode
+![[Pasted image 20250619220724.png]]
 # POO - Programação Orientada a Objetos
 - O python permite trabalhar tanto em POO quanto em programação estruturada
 - Os objetos vão ter métodos e atributos
