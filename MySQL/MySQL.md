@@ -30,7 +30,7 @@ EXEMPLOS de INDICADORES:
  ![[Pasted image 20250613110500.png]]
 ## Como acesso os dados inseridos na tabela? Comando SELECT
 
-### SELECT
+### Comandos Base
 - Comando pra acessar os dados de uma tabela:
  ![[Pasted image 20250613110739.png]]
  
@@ -62,22 +62,96 @@ Da pra usar diverso parâmetros depois do `WHERE`:
 ![[Pasted image 20250620103406.png]]
 - O sinal de diferente no MySQL é assim: `<>` ( coloquei aqui pois é diferente dos sinais de diferença que vejo em outras linguagens)
 
-#### Tem como filtrar linhas de maneiras ainda mais específicas
+### Tem como filtrar linhas de maneiras ainda mais específicas usando o `SELECT` + Outros comandos
 
-- Usando o comando `BETWEEN`
+#### Usando o comando `BETWEEN`
 Ex.:
 ![[Pasted image 20250620103634.png]]
 Nesse exemplo aqui, vai filtrar o total de aulas entre 20 e 30, ou seja, não vai aparecer totaulas menores que 20 e nem maiores que 30
 
-- Usando o comando `IN`
+#### Usando o comando `IN`
 Ex.:
 ![[Pasted image 20250620104151.png]]
 Nesse exemplo, vai aparecer apenas as linhas que tenham esses 3 anos em específico, linhas que não correspondem não irão aparecer
 
-- Exemplos de combinações:
-![[Pasted image 20250620104646.png]]
-![[Pasted image 20250620105115.png]]
+#### Usando o comando `LIKE`
+Ex.:
+![[Pasted image 20250623101922.png]]
+Vai procurar dados dentro do campo 'nome' ( ou o que você chamar ) que tenham a letra `P` no começo
+O  símbolo de `%` é fundamental pra esse código funcionar, ele vai substituir os caracteres que vem após ou antes do dado que você informou
 
+Você pode usar outras combinações pra ser ainda mais específicas na hora de procurar o que você quer:
+
+![[Pasted image 20250623102516.png]]
+- Vai procurar nomes que tenham a letra `P` no meio, inicio e final
+
+![[Pasted image 20250623102559.png]]
+- Vai procurar nomes que tenha a letra `P` no final
+
+![[Pasted image 20250623102650.png]]
+- Vai procurar nomes que tenham a letra `P` no começo e `N` no final
+
+![[Pasted image 20250623104610.png]]
+- O símbolo `_` é bem interessante nesse comando, ele meio que vai dizer pro código: " Olha, esse nome começa com `P`, tem duas letras obrigatórias após o `P`, e depois dessas duas letras, tem um `T` ( também obrigatório ). Ele pode ou não terminar com outros caractereres ( por causa do `%` ) "
+
+![[Pasted image 20250623105546.png]]
+- O underline `_` também pode indicar espaço antes das letras/palavras/dados etc.
+
+![[Pasted image 20250623103828.png]]
+- Também tem como usar o comando `NOT` antes do `LIKE` para excluir alguns dados específicos do resultado da sua pesquisa
+
+É um comando bem poderoso e simples de entender, use e teste combinações
+
+#### Comando `DISTINCT`
+
+- É um comando que vai te ajudar a achar valores únicos dentro da sua tabela.
+Ex.:
+![[Pasted image 20250623110213.png]]
+Nesse exemplo, vai mostrar apenas nacionalidades únicas que aparecem no seu código, ou seja, se tem 50 brasileiros no seu banco de dados, vai aparecer 'BRASIL' apenas uma vez, ao invés de ficar repetindo 'BRASIL' 50x
+
+#### Comando `COUNT`
+
+- Esse comando vai contar a quantidade de itens que tem o dado que você procura
+Ex.:
+![[Pasted image 20250623111123.png]]
+Vai aparecer quantos cursos tem a carga maior que 40 
+
+#### Comando `MAX` e  `MIN`
+ 
+ - Comando `MAX`
+ Esse comando vai dizer qual é a maior quantidade dentro de um campo, geralmente usado com números
+ Ex.:
+ ![[Pasted image 20250623111932.png]]
+ Vai dizer qual é a maior carga registrada dentro da tabela cursos
+
+Ex.2:
+![[Pasted image 20250623112413.png]]
+Vai dizer qual foi o máximo de aulas que teve nos cursos do ano de 2016
+
+- Comando `MIN`
+Esse comando funciona da mesma maneira que o `MAX`, só que ao invés de procurar pelo maior, vai procurar pelo menor
+Ex.:
+![[Pasted image 20250623112638.png]]
+Vai dizer qual foi a menor quantidade de aulas que teve nos cursos do ano de 2016
+
+- Como mostrar mais de um campo com esses comandos sendo chamados:
+Use um código assim:
+![[Pasted image 20250623113411.png]]
+Vai selecionar oque você quer mostrar e vai dar a condicional que você precisa
+Esse método ficou extenso porque o MySQL nas recentes atualizações, não permite que um valor seja chamado de qualquer forma, ele precisa ser bem informado, para não ocorrer erros
+
+#### Comando `SUM` e `AVG`
+
+- Comando `SUM`
+Vai somar todos dados da coluna que você pedir
+Ex.:
+![[Pasted image 20250623113800.png]]
+Vai somar todas as aulas de todos os cursos e depois te mostrar quantas aulas você veria se assistisse a todos os cursos
+
+- Comando `AVG`
+Vai mostrar a média, tipo " Qual é a média de aulas por curso? "
+![[Pasted image 20250623114119.png]]
+Vai mostrar a média de aulas pra cada curso (No banco de dados que estou usando, deu uma média de 19 aulas por curso)
 ## Como editar uma tabela existente? Comando ALTER
 ![[Pasted image 20250616093118.png]]
 Use o comando `ALTER TABLE NOME_TABELA`
