@@ -186,6 +186,40 @@ Ex.:
 "Delete da tabela cursos, onde o ano for igual a 2055. Se limite á apenas as primeiras 2 linhas, mesmo se existir mais do que isso."
 - E se eu quiser DELETAR TODAS as linhas?
 Use o comando `TRUNCATE TABLE NOME_TABELA`
+
+## Como agrupar dados? Comando GROUP BY
+- O comando `GROUP BY` vai agrupar dados semelhantes dentro da sua tabela
+Ex.:
+![[Pasted image 20250624101550.png]]
+Vai agrupar todos os cursos com carga horária parecida
+
+- Uma combinação Interessante, é com o comando `COUNT`, vai mostrar quantos dados estão agrupados
+Ex.:
+![[Pasted image 20250624101851.png]]
+Obs: o `COUNT` pode receber `*` (todos) que fica até mais prático 
+
+Resultado:
+![[Pasted image 20250624101905.png]]
+Esse resultado mostra que existem 9 cursos de 40 horas, 4 cursos de 20 e etc.
+
+- Usando o comando `HAVING` com o `GROUP BY`
+
+Você vai usar o comando `HAVING` pra pedir que o `COUNT` tenha uma quantidade específica ou alguma lógica antes de ser mostrado
+Ex.:
+Quero que me mostre os grupos de carga que tenham pelo menos mais de 3 cursos:
+![[Pasted image 20250624103249.png]]
+Vai mostrar apenas os agrupamentos que tenham mais de 3 cursos
+
+Outro Ex.:
+![[Pasted image 20250624103504.png]]
+Vai mostrar apenas os anos que tiveram mais, ou, 5 cursos
+
+Último Ex.:
+![[Pasted image 20250624104819.png]]
+Oque esse comando faz? Ele vai mostrar a quantidade de cursos de anos após ( maiores ) 2015, em que a carga seja maior que a média de cargas desses anos.
+
+Eu coloquei esse comando aqui, para lembrar a importância de usar parênteses e fazer um select quando você quiser usar uma operação que precisa de um comando (como `SUM, MAX, MIN, AVG` e etc)
+
 # MySQL no Terminal
 - Para entrar no MySQL via terminal, use os seguintes comandos:
 Esse comando para acessar a pasta do servidor (Verifique a pasta em que o seu servidor está e modifique o comando se for preciso):

@@ -1364,3 +1364,13 @@ O app seria o nome da sua janela principal, etc
 - Sticky == Aumenta o widget automaticamente para preencher a linha
 
 
+
+# SQLITE3 - Banco de Dados SQL
+## Criando Banco de Dados
+
+- Para criar o arquivo `.db`, o banco de dados em si, primeiro você deve importar o sqlite3 no seu código:
+![[Pasted image 20250623230708.png]]
+E depois usar o comando de `conexão`, esse comando que vai criar o seu banco de dados/arquivo
+Ex.:
+![[Pasted image 20250623230806.png]]
+(O nome 'usuarios.db' pode receber qualquer nome, o importante é estar entre aspas e ter `.db` no final)
