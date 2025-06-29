@@ -1374,3 +1374,61 @@ E depois usar o comando de `conexão`, esse comando que vai criar o seu banco de
 Ex.:
 ![[Pasted image 20250623230806.png]]
 (O nome 'usuarios.db' pode receber qualquer nome, o importante é estar entre aspas e ter `.db` no final)
+
+## Executando Comandos
+
+### Básico
+- O primeiro passo antes de executar quaisquer comando, é criar um cursor
+O cursor é oque vai pegar o seu comando e enviar pra sua conexão, seu banco de dados
+Ex.:
+![[Pasted image 20250624221916.png]]
+E para executar seus comandos SQL use:
+![[Pasted image 20250624222159.png]]
+
+- Para salvar os dados no banco de dados, use `conexao.commit()` toda vez que fizer uma alteração no Banco (Insert, update, delete etc) (==é uma etapa importante==)
+- Para encerrar o código, a conexão com o Banco, use `conexao.close()` após o commit
+Ex.:
+![[Pasted image 20250624225819.png]]
+
+### Tabelas
+
+ - Para criar uma tabela é semelhante a criar uma tabela em um Banco MySQL tradicional, a diferença é que o código fica dentro do cursor execute
+ Ex.:
+ ![[Pasted image 20250624222900.png]]
+ Vai criar a tabela pessoas SE ela não existir dentro do banco. Isso garante que não crie um tabela do 0 toda vez quer for rodar esse comando no código
+
+- Para inserir dados em uma tabela, use:
+![[Pasted image 20250624224903.png]]
+Declare os campos que você vai preencher e coloque os valores entre aspas, dentro do `VALUES`
+
+- Para inserir dados de variáveis dentro de uma tabela, coloque `?` dentro de `VALUES`, um pra cada item que você for adicionar, e depois das aspas triplas do comando `EXECUTE`, chame as variáveis
+Ex.:
+![[Pasted image 20250624232320.png]]
+
+
+### SELECT - Extrair os dados
+
+- Primeiro vou te mostrar um exemplo básico de como extrair os dados:
+![[Pasted image 20250624233210.png]]
+Esse é um comando simples de `SELECT`, o que realmente importa aqui é o `cursor.FETCHALL()`
+O `FETCHALL` vai buscar todos os dados recebidos da última consulta de select feita e vai retornar em formato de `TUPLA`
+Alguns comandos `FETCH` que podem ser úteis:
+![[Pasted image 20250624233623.png]]
+## Tipos de dados SQLite (Os mais usados)
+
+- ID auto numérico = `INTEGER PRIMARY KEY AUTOINCREMENT` -> Só pode haver um por tabela
+
+- Texto (nome, email...) = `TEXT`	-> Equivale a VARCHAR no MySQL
+
+- Número inteiro = `INTEGER` -> Substitui INT, TINYINT, etc
+
+- Número decimal = `REAL` -> Para valores com casas decimais
+
+- Data/Hora = `TEXT` -> Formato 'YYYY-MM-DD HH:MM:SS'
+
+- Booleano	= `INTEGER` = 1 -> True, 0 = False
+
+- Arquivos binários = `BLOB` -> Para imagens, PDFs, etc
+
+
+
