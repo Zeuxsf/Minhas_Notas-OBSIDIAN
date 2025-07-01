@@ -221,7 +221,33 @@ Ex.:
 - E se eu quiser DELETAR TODAS as linhas?
 Use o comando `TRUNCATE TABLE NOME_TABELA`
 
+## Chave Estrangeira e Modelo Relacional
+- Como fazer uma chave estrangeira?
+Primeiro adicione uma coluna nova na criação da tabela, que vai receber a chave, ou, adicione após a criação da tabela:
+![[Pasted image 20250701102420.png]]
+Para transformar a coluna criada em chave estrangeira, use:
+![[Pasted image 20250701102625.png]]
+O comando `REFERENCES` vai indicar a chave da outra tabela que você vai usar
 
+Explicação:
+Na tabela gafanhotos vai ser adicionada uma chave estrangeira, essa chave vai receber o id do curso escolhido pelo gafanhoto cadastrado, a chave estrangeira vai ser referente ao idcurso da tabela cursos
+
+### Junções
+
+- Como mostrar as informações dentro da chave estrangeira quando pedir um `SELECT`?
+Use o comando `JOIN` e o comando `ON` (`INNER JOIN`)
+Ex.:
+![[Pasted image 20250701105051.png]]
+No `SELECT` você tem que informar a informação de cada tabela que você quer ver, aí no `JOIN` você informa qual tabela você quer incluir no `SELECT` (Isso que vai fazer funcionar o comando select naquele formato)
+No comando `ON` você tem que fazer a comparação, pro comando `JOIN` não mostrar todos os cursos de uma vez, aí vai mostrar apenas os que estão atribuídos ao gafanhoto
+
+- E se eu quiser mostrar todos os gafanhotos? Mesmo aqueles sem curso preferido (`OUTER JOIN`)
+Ex.:
+![[Pasted image 20250701110257.png]]
+Caso use o `LEFT` o código vai mostrar os nulos da tabela da esquerda, se usar o `RIGHT`, os da direita
+
+Exemplo com foto:
+![[Pasted image 20250701110534.png]]
 # MySQL no Terminal
 - Para entrar no MySQL via terminal, use os seguintes comandos:
 Esse comando para acessar a pasta do servidor (Verifique a pasta em que o seu servidor está e modifique o comando se for preciso):
