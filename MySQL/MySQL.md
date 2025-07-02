@@ -232,6 +232,18 @@ O comando `REFERENCES` vai indicar a chave da outra tabela que você vai usar
 Explicação:
 Na tabela gafanhotos vai ser adicionada uma chave estrangeira, essa chave vai receber o id do curso escolhido pelo gafanhoto cadastrado, a chave estrangeira vai ser referente ao idcurso da tabela cursos
 
+- Relação de muitos pra muitos (muitos usuários podem fazer muitas coisas)
+Exemplo visual:
+![[Pasted image 20250702084412.png]]
+Explicação:
+Foi criada uma tabela nova em que será cadastrado um id primário, a data em que o curso foi assistido e uma chave estrangeira pro usuário e pro curso
+Aí conseguimos organizar quem assiste oque usando comandos desse tipo aqui:
+![[Pasted image 20250702085715.png]]
+E aí o resultado será algo assim:
+![[Pasted image 20250702085736.png]]
+O nome do usuário, a data que ele viu o curso e o nome do curso
+Engenhoso demais para organizar um banco de dados grande
+
 ### Junções
 
 - Como mostrar as informações dentro da chave estrangeira quando pedir um `SELECT`?
