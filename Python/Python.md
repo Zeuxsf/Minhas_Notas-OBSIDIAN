@@ -236,10 +236,7 @@ Dicas:
 - Cada palavra pode pode ser considerada uma 'Lista', oque permite fazer coisas parecidas ao ==exercício 6 da aula 16==:
 - ![[Pasted image 20250228100135.png]]
 - As tuplas podem ser criadas com base em outras:
-![[Pasted image 20250422092155.png]]
-
-
-
+ ![[Pasted image 20250422092155.png]]
 ## LISTAS
 - variável = ['Lista', 'lista', 'lista']
 - ==AS LISTAS SÃO MUTÁVEIS==
@@ -250,10 +247,10 @@ Dicas:
 - Caso eu precise ==Organizar== uma lista: ![[Pasted image 20250303093554.png]]
 - Caso eu precise ==Organizar de Trás pra frente==: ![[Pasted image 20250303093650.png]]
 - Para criar uma lista cópia de outra lista, é só fazer desse jeito:
-- ![[Pasted image 20250303101303.png]]
+ ![[Pasted image 20250303101303.png]]
 ==OU== usar: ==ListaNome.copy()==
 - como é uma ==lista composta:==
-- ![[Pasted image 20250305091417.png]]
+![[Pasted image 20250305091417.png]]
 
 ### List Comprehension
 - Uma sintaxe mais curta para criar uma lista com base em uma lista já existente no código
@@ -643,6 +640,7 @@ Caso não funcione, você pode procurar maneiras pra resolver isso, ou, desativa
 VScode
 ![[Pasted image 20250619220724.png]]
 # POO - Programação Orientada a Objetos
+## Base
 - O python permite trabalhar tanto em POO quanto em programação estruturada
 - Os objetos vão ter métodos e atributos
 - A classe é um projeto de um objeto, é o rascunho
@@ -695,6 +693,9 @@ Porém, caso queira tratar pra dar uma função/printar uma string customizada q
 ![[Pasted image 20250501111140.png]]
 O `def __str__(self):` vai fazer o trabalho de customizar essa saída, caso seja interessante ter isso configurado no programa
 
+- `CLASSMETHOD`
+![[Pasted image 20250731104422.png]]
+Vai criar uma função automática dentro daquela classe, serve para diversos contextos
 ## Métodos Especiais em POO (Com a Ajuda do ChatGpt):
 
 ### Construtor e destrutor
@@ -762,6 +763,20 @@ __deepcopy__(self, memo)  # deepcopy(obj)
 - Um novo objeto (objeto filho) irá herdar as características do obj pai
 - Método de criar subclasses
 
+## Métodos  Mágicos (DUNDER METHODS)
+__lt__(self,other) - self < other
+__le__(self,other) - self <= other
+__gt__(self,other) - self > other
+__ge__(self,other) - self >= other
+__eq__(self,other) - self == other
+__ne__(self,other) - self != other
+__add__(self,other) - self + other
+__sub__(self,other) - self - other
+__mul__(self,other) - self * other
+__truediv__(self,other) - self / other
+__neg__(self) - -self
+__str__(self) - str
+__repr__(self) - str
 # CUSTOMTKINTER - CTK
 
 ## Criando a janela:
