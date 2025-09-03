@@ -777,6 +777,8 @@ __truediv__(self,other) - self / other
 __neg__(self) - -self
 __str__(self) - str
 __repr__(self) - str
+## Dataclasses
+![[Pasted image 20250902092026.png]]
 # CUSTOMTKINTER - CTK
 
 ## Criando a janela:
