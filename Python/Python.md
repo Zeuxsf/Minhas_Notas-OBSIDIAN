@@ -1447,5 +1447,83 @@ Alguns comandos `FETCH` que podem ser úteis:
 
 - Arquivos binários = `BLOB` -> Para imagens, PDFs, etc
 
+# DJANGO - Framework Web
+(Recomendação de vídeo para aprendizado [aqui](https://www.youtube.com/watch?v=XAzVlnPDVd0&t=95s)
+## Base
 
+ - Bom, após instalar o django no seu computador, usando pip install
+ A melhor maneira de começarum projeto, é escrevendo o seguinte no terminal:
+ `django-admin startproject nome_do_projeto`
+ Desse modo ele vai criar tudo oque é necessário para você começar a programar.
+- Com os arquivos criados, use `python manage.py runserver` para criar um localhost da aplicação
+Ex.:
+![[Pasted image 20250904083813.png]]
+ 
+## Criando Rotas (paths)
+- As rotas são os links, os caminhos que seu site vai gerar para cada aba diferente, pra quando você quiser acessar algo e não puder exibir isso na aba principal
+Ex.:
+Em `urls.py`, onde fica escrito `urlpatterns`, escreva `path('nome/')`
+(obs: aproveitando que você está em `urls.py`, importe: `from django.http import HttpResponse`)
+![[Pasted image 20250904084326.png]]
+Mas o caminho ainda não funciona. Para dar uma função a esse caminho, cria uma `def` que vai ser o conteúdo dessa rota
+Ex.:
+![[Pasted image 20250904084936.png]]
+==Obs: Não é boa prática criar as rotas dentro do urls.py, crie um arquivo separado==
 
+## Criando Apps (basicamente um módulo semelhante ao projeto principal)
+- Para criar um App, use no seu terminal: `django-admin startapp nome_do_app`
+- Para habilitar esse app no projeto principal, vá em `settings.py` e em `INSTALLED_APPS` coloque o nome do seu app
+Ex.:
+![[Pasted image 20250904090848.png]]
+
+- Colocando as rotas criadas no app dentro do proj. principal:
+Bom, primeiro você vai criar um `urls.py` dentro da pasta app que você criou, vai adicionar rotas, views (em um arquivo separado) etc
+Ex.:
+![[Pasted image 20250904091740.png]]
+Depois, no arquivo `urls.py` do projeto principal, importe `from django.urls import include`
+E depois coloque na lista de paths: 
+`path('nome_do_app/', include('nome_do_app.urls'))`
+
+## Colocando Templates
+### Base
+Para começar, em `settings.py` na pasta do projeto principal, onde está escrito `TEMPLATES`, `DIRS`, coloque dentro de `DIRS`:
+`BASE_DIR/'templates'`
+Ex.:
+![[Pasted image 20250904092549.png]]
+Agora, na pasta raiz do seu programa, crie duas pastas, uma chamada `templates` e a outra com o nome do seu app (essa tem que ficar dentro da outra). Nessa segunda pasta, você vai criar um arquivo `html`.
+Ex.:
+![[Pasted image 20250904092819.png]]
+- Para fazer esse arquivo funcionar no seu site, vá na pasta views do seu app, verifique se tem o `from django.shortcuts import render` e na sua view, ao invés de retornar o `HttpResponse`, retorne `render(request,pasta_dentro_de_templates/arquivo.html)`
+Ex.:
+![[Pasted image 20250904093605.png]]
+
+- Para inserir variáveis no seu arquivo `html`, use o seguinte método:
+![[Pasted image 20250904093906.png]]
+Exemplificando: você vai criar um dicionário, colocar suas variáveis ali dentro e colocar o dicionário após o caminho do template
+
+### Botões redirecionadores
+- Aqui a gente vai lidar mais com a parte 'HTML' da coisa, mas por enquanto não vamos nos aprofundar muito.
+- Vamos lá: no arquivo `utls.py` do seu app, você vai definir um `app_name` (como se fosse uma variável mesmo) e depois colocar um name para o path que você quer chamar
+Ex.:
+![[Pasted image 20250904101103.png]]
+Pronto, agora só chamar isso tudo no arquivo html
+Ex.:
+![[Pasted image 20250904101146.png]]
+
+## Models
+- Models são as informações que vão ser guardadas no banco de dados
+- Primeiro de tudo: acesse `models.py` na pasta do seu app
+Adicione uma classe e os modelos que você quer chamar
+Ex.:
+ ![[Pasted image 20250904103109.png]]
+ (Recomendo buscar estudar um pouco mais sobre)
+Resultado no Banco de Dados:
+![[Pasted image 20250904104246.png]]
+
+### Migração (tipo um versionamento para banco de dados do django)
+- Para criar uma migração, digite no terminal `python manage.py makemigrations`
+Resultado:
+![[Pasted image 20250904103357.png]]
+- Para usar a migração, escreva no terminal: `python manage.py migrate`
+ Resultado:
+ ![[Pasted image 20250904103829.png]]
