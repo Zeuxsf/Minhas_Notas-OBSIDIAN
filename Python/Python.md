@@ -1448,7 +1448,7 @@ Alguns comandos `FETCH` que podem ser úteis:
 - Arquivos binários = `BLOB` -> Para imagens, PDFs, etc
 
 # DJANGO - Framework Web
-(Recomendação de vídeo para aprendizado [aqui](https://www.youtube.com/watch?v=XAzVlnPDVd0&t=95s)
+(Recomendação de vídeo para aprendizado [aqui](https://www.youtube.com/watch?v=XAzVlnPDVd0&t=95s))
 ## Base
 
  - Bom, após instalar o django no seu computador, usando pip install
@@ -1527,3 +1527,23 @@ Resultado:
 - Para usar a migração, escreva no terminal: `python manage.py migrate`
  Resultado:
  ![[Pasted image 20250904103829.png]]
+## Forms (Caixas de texto e Salvando no Banco de Dados)
+ - Vai criar formulários (caixas de texto, etc) em django para aparecer na página html
+ - Para criar forms, primeiro crie um arquivo chamado `forms.py` dentro da pasta do app
+ 
+ Use `from django import forms` 
+ Depois importe seu model (DB) que você criou: `from .models import nome_do_model`
+ 
+ Pronto, feito os imports, agora você cria uma classe e ela terá que herdar de `forms.ModelForm`. Dentro dessa classe você vai criar outra classe, de preferência ela vai se chamar `Meta`.
+ Dentro da classe `Meta`, você cria uma variável chamada `model` e ela vai receber o seu model e uma variável chamada fields, que vão ser os campos que você criou dentro do seu DB
+ Ex.:
+![[Pasted image 20250905085945.png]]
+
+Resultado:
+![[Pasted image 20250905090427.png]]
+
+- Como salvar os dados no banco de dados?
+Você vai criar um botão na parte HTML do seu site (não é o meu foco aqui)
+Depois, você vai em `views.py` e vai escrever o seguinte código:
+![[Pasted image 20250905092749.png]]
+Vai salvar os dados no seu DB caso os dados sejam válidos, e logo após vai redirecionar para a página home.
