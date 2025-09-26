@@ -1,7 +1,6 @@
 [Site de mapas mentais sobre Programação](https://roadmap.sh/)
 [Site do Python para pegar documentação](https://www.python.org/doc/) 
 [StackOverflow](https://pt.stackoverflow.com/?tags=python)
-[Vídeos sobre IA em Python](https://youtu.be/10fp0U0Xrbw?si=wFhZWeXSnmDLKfO2)
 # BÁSICOS
 ## Anotações Base
 - Toda ==Váriavel== é um objeto para o python
@@ -779,7 +778,7 @@ __str__(self) - str
 __repr__(self) - str
 ## Dataclasses
 ![[Pasted image 20250902092026.png]]
-# CUSTOMTKINTER - CTK
+# CUSTOMTKINTER - Interface Gráfica Simples
 
 ## Criando a janela:
 - ![[Pasted image 20250331100529.png]]
@@ -1547,3 +1546,99 @@ Você vai criar um botão na parte HTML do seu site (não é o meu foco aqui)
 Depois, você vai em `views.py` e vai escrever o seguinte código:
 ![[Pasted image 20250905092749.png]]
 Vai salvar os dados no seu DB caso os dados sejam válidos, e logo após vai redirecionar para a página home.
+
+# FAST API - Criador de API´S 
+obs: Esse tutorial vai ser para um projeto específico, para aprendizado, oque vai ser interessante é aprender com ele e depois criar as próprias rotas, bancos e etc.
+## Base 
+- Como criar a base da API?
+![[Pasted image 20250924083804.png]]
+- Como rodar a API?
+Use: `uvicorn main(ou o nome q você deu pro arquivo):app -- reload`
+
+## Rotas
+- Você vai criar dois arquivos `.py`, eles vão se chamar auth_routes e order_routes
+- Dentro desses arquivos você vai definir os `Router`(Roteadores)
+![[Pasted image 20250924094301.png]]
+![[Pasted image 20250924094319.png]]
+O prefix vai ser a rota de acesso e a tag vai ser tipo um "apelido"
+
+- No arquivo `main` você vai incluir os seus roteadores no projeto principal
+Assim:
+![[Pasted image 20250924094620.png]]
+
+### Criando comandos para as rotas
+
+- Para criar uma função de rota, primeiro você vai colocar um decorator que vai representar que tipo de função é essa
+Ex.: GET, POST, PATCH, DELETE e outros
+- Depois do decorator, você vai criar uma função (assíncrona de preferência) que vai executar o comando que você deseja
+Ex.:
+![[Pasted image 20250924100554.png]] ![[Pasted image 20250924101058.png]]
+obs: Restful api´s geralmente retornam arquivos json(tipo de dicionário) para o app principal(o front) poder acessar as informações.
+
+- Você pode documentar suas funções, para as explicações aparecerem na docs da API
+Ex.:
+![[Pasted image 20250924103226.png]] ![[Pasted image 20250924103239.png]]
+
+## Modelos (Banco de Dados)
+### Base
+- O primeiro passo é criar um arquivo chamado: `models.py`
+- Importe o sqlalchemy (create_engine)
+- Crie o DB
+Ex.:
+![[Pasted image 20250925092650.png]]
+obs: Dentro dos parenteses, vai ser onde você vai colar o link do seu banco de dados após o deploy. O método usado é para um DB Local, para testes
+
+- Faça mais um import dentro do sqlalchemy
+![[Pasted image 20250925092941.png]]
+E depois crie a base do DB:
+![[Pasted image 20250925093138.png]]
+### Classes do Banco de Dados
+- Você vai começar importando esses atributos da sqlalchemy:
+![[Pasted image 20250925094125.png]]
+- Agora você vai começar a criar as classes conforme for precisando. Vou colar as prints do código das classes aqui, não é muito difícil de entender
+Tabela de Usuários:
+![[Pasted image 20250925095611.png]]
+Tabela de Pedidos:
+- Para a tabela de pedidos, é interessante importar a lib:
+![[Pasted image 20250925101153.png]]
+- A Tabela:
+![[Pasted image 20250925101341.png]]
+Tabela de Itens:
+![[Pasted image 20250925102516.png]]
+### Migrações (Migrations do banco de dados usando Alembic)
+- O primeiro passo é instalar a lib `Alembic`
+![[Pasted image 20250925102744.png]]
+- O segundo passo é ativar essa lib. No terminal, escreva:
+![[Pasted image 20250925102925.png]]
+- Terceiro passo: importe as bibliotecas sys e os para o arquivo env.py na pasta que o alembic vai criar
+Depois, escreva o seguinte código dentro desse arquivo:
+![[Pasted image 20250925103642.png]]
+* O quarto passo é importar a variável `Base` do seu arquivo `models.py`
+![[Pasted image 20250925103835.png]] ![[Pasted image 20250925103921.png]]
+
+### Criação do Banco de Dados
+- Primeiro passo: colocar o endereço do seu banco de dados em Alembic.ini
+![[Pasted image 20250925104818.png]]
+- Segundo passo: Criar o DB. No terminal, escreva:
+![[Pasted image 20250925104901.png]]
+- Terceiro passo: executar a migração
+![[Pasted image 20250925110024.png]]
+
+## Contas de usuário
+### Etapa 1
+- No arquivo `auth_routes.py` você vai criar uma função chamada `criar_conta` da seguinte maneira
+![[Pasted image 20250926085548.png]]
+- Importe as seguintes bibliotecas:
+![[Pasted image 20250926090250.png]]
+![[Pasted image 20250926090518.png]]
+- O código vai ficar assim:
+![[Pasted image 20250926091503.png]]
+
+### Etapa 2
+- Criar um arquivo chamado `dependencies.py`
+Nesse arquivo você vai recriar toda a função de pegar sessão
+![[Pasted image 20250926093710.png]]
+- No arquivo auth_routes você vai importar essa função `pegar_sessao` e a função `Depends` do FastAPI
+![[Pasted image 20250926093956.png]]
+- Agora na função `criar_conta`, você vai definir um parâmetro chamado session e vai definir um default pra ele desse jeito:
+![[Pasted image 20250926094107.png]]
