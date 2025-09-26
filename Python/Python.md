@@ -1625,7 +1625,7 @@ Depois, escreva o seguinte código dentro desse arquivo:
 ![[Pasted image 20250925110024.png]]
 
 ## Contas de usuário
-### Etapa 1
+### Etapa 1 : Criando a base
 - No arquivo `auth_routes.py` você vai criar uma função chamada `criar_conta` da seguinte maneira
 ![[Pasted image 20250926085548.png]]
 - Importe as seguintes bibliotecas:
@@ -1634,11 +1634,45 @@ Depois, escreva o seguinte código dentro desse arquivo:
 - O código vai ficar assim:
 ![[Pasted image 20250926091503.png]]
 
-### Etapa 2
+### Etapa 2 : Corrigindo falhas
 - Criar um arquivo chamado `dependencies.py`
 Nesse arquivo você vai recriar toda a função de pegar sessão
-![[Pasted image 20250926093710.png]]
+![[Pasted image 20250926094809.png]]
 - No arquivo auth_routes você vai importar essa função `pegar_sessao` e a função `Depends` do FastAPI
 ![[Pasted image 20250926093956.png]]
 - Agora na função `criar_conta`, você vai definir um parâmetro chamado session e vai definir um default pra ele desse jeito:
 ![[Pasted image 20250926094107.png]]
+
+- Retorno da função:
+Usuário já existente: ![[Pasted image 20250926102519.png]]
+### Etapa 3 : Criptografando senhas
+- No seu arquivo Main.py, importe
+`import os`
+![[Pasted image 20250926095345.png]]
+![[Pasted image 20250926095836.png]]
+- Crie um arquivo `.env`
+- Vai criar uma secret_key dentro do .env
+![[Pasted image 20250926095733.png]]
+obs: de preferência uma senha forte e criptografada
+- No arquivo main, você vai seguir o seguinte processo:
+![[Pasted image 20250926100406.png]]
+
+- No arquivo auth_routes.py você vai importar o bcrypt_context do main.py e depois vai criar uma variável chamada `senha_criptografada` na função `criar_conta`
+Dentro do `else` da função, você vai escrever o seguinte código:
+![[Pasted image 20250926100742.png]]
+
+## Schemas
+É uma forma de criar um "template" das informações que você for pedir, tipo: ao invés de passar cada informação uma a uma na hora de criar o usuário, o schema vai passar uma classe pronta e o sistema só vai ter que adicionar os dados no DB
+
+- Crie um arquivo chamado `schemas.py`
+- Importe:
+![[Pasted image 20250926103326.png]]
+![[Pasted image 20250926103438.png]]
+- Crie uma classe chamada `Usuario_Schema`
+![[Pasted image 20250926103810.png]]
+- Agora em auth_routes, importe
+![[Pasted image 20250926104055.png]]
+E mude o cabeçalho da sua função `criar_conta` desse jeito aqui:
+![[Pasted image 20250926104137.png]]
+- Por final, com todas as alterações feitas, a função `criar_conta` vai ficar assim:
+![[Pasted image 20250926104418.png]]

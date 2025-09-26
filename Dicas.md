@@ -1,0 +1,1 @@
+"Se a sua função está recebendo mais de 3 parâmetros, é melhor você criar um objeto(classe) pra enviar tudo de uma vez, fica modular e legível"
