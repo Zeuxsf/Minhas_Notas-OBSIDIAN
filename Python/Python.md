@@ -1699,5 +1699,24 @@ E a função:
 ![[Pasted image 20251001083203.png]]
 
 ### Etapa 3: Criando o token JWT
-- No arquivo main, você vai criar uma variável de algorítimo
-![[Pasted image 20251001084346.png]]
+- No arquivo main, você vai criar uma variável de algorítimo e de tempo de expiração do token
+![[Pasted image 20251001091223.png]]
+- No arquivo .env você também vai criar essas variáveis
+![[Pasted image 20251001085058.png]] ![[Pasted image 20251001085259.png]]
+(`HS256` é obrigatório) (O tempo do Access token é em minutos)
+
+- No auth_routes você vai importar
+![[Pasted image 20251001090300.png]]
+
+- A função JWT vai ficar assim:
+![[Pasted image 20251001091448.png]]
+
+### Etapa 4: Refresh Token
+- Você vai adicionar o parâmetro de duracao na função geradora de token
+![[Pasted image 20251001094406.png]]
+- E vai adicionar a variável de refresh token na função de login
+![[Pasted image 20251001094550.png]]
+- Vai criar uma rota de refresh token
+![[Pasted image 20251001100043.png]]
+- E uma função de verificar o token (sujeita alterações nos próximos blocos)
+![[Pasted image 20251001100122.png]]
