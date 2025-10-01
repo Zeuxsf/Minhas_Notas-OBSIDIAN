@@ -1676,3 +1676,28 @@ E mude o cabeçalho da sua função `criar_conta` desse jeito aqui:
 ![[Pasted image 20250926104137.png]]
 - Por final, com todas as alterações feitas, a função `criar_conta` vai ficar assim:
 ![[Pasted image 20250926104418.png]]
+- Nessa parte vamos trabalhar com os pedidos
+- Em Schemas.py você vai criar a classe de pedidos
+![[Pasted image 20250929084834.png]]
+- Em order_routes você vai criar o caminho dos pedidos
+![[Pasted image 20250929084915.png]]
+
+## Login - Json Web Token JWT
+### Etapa 1
+- Em schemas.py você vai criar a classe de login
+![[Pasted image 20250929085934.png]]
+- Em auth_routes você vai definir a função:
+![[Pasted image 20250929095818.png]]
+(vai ter alterações futuras)
+E a função:
+![[Pasted image 20250929100120.png]]
+
+### Etapa 2
+- Você vai criar a função:
+![[Pasted image 20251001083137.png]]
+- E vai editar a função de login:
+![[Pasted image 20251001083203.png]]
+
+### Etapa 3: Criando o token JWT
+- No arquivo main, você vai criar uma variável de algorítimo
+![[Pasted image 20251001084346.png]]
