@@ -1720,3 +1720,21 @@ E a função:
 ![[Pasted image 20251001100043.png]]
 - E uma função de verificar o token (sujeita alterações nos próximos blocos)
 ![[Pasted image 20251001100122.png]]
+
+### Funções permitidas somente com o login
+- Para começar, a função de verificar token vai ser movida para o arquivo de dependencies.py
+- A função de refresh token vai ser atualizada:
+![[Pasted image 20251002093704.png]]
+- Em dependencies você vai importar a lib jwt
+![[Pasted image 20251002093940.png]]
+- No arquivo main, você vai importar:
+![[Pasted image 20251002100555.png]]
+- E vai escrever esse código:
+![[Pasted image 20251002100744.png]]
+- Atualização da função verificar token:
+![[Pasted image 20251002102732.png]]
+### Habilitar o botão 'Authorize' na docs
+- Você vai criar uma nova função de login especialmente para esse botão, em auth routes
+![[Pasted image 20251002105046.png]]
+E vai mudar o Oauth2_schema em main
+![[Pasted image 20251002104553.png]]
