@@ -1579,7 +1579,7 @@ obs: Restful api´s geralmente retornam arquivos json(tipo de dicionário) para 
 Ex.:
 ![[Pasted image 20250924103226.png]] ![[Pasted image 20250924103239.png]]
 
-## Modelos (Banco de Dados)
+## Modelos - Banco de Dados
 ### Base
 - O primeiro passo é criar um arquivo chamado: `models.py`
 - Importe o sqlalchemy (create_engine)
@@ -1738,3 +1738,12 @@ E a função:
 ![[Pasted image 20251002105046.png]]
 E vai mudar o Oauth2_schema em main
 ![[Pasted image 20251002104553.png]]
+## Níveis de acesso para executar requisições
+### Etapa 1: Só pode acessar o pedido quem está logado/rota de cancelamento
+- Primeiro você vai adicionar a dependencia de verificar token no order routes
+![[Pasted image 20251003085703.png]]
+- Agora criaremos a rota para cancelar pedidos em order routes
+![[Pasted image 20251003091200.png]]
+### Etapa 2: Definindo o nível de acesso de quem pode cancelar o pedido
+- Atualização da função de cancelar pedido
+![[Pasted image 20251003093310.png]]
