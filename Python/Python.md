@@ -1747,3 +1747,41 @@ E vai mudar o Oauth2_schema em main
 ### Etapa 2: Definindo o nível de acesso de quem pode cancelar o pedido
 - Atualização da função de cancelar pedido
 ![[Pasted image 20251003093310.png]]
+
+
+## Relações - Banco de dados
+### Etapa 1: Listando todos os pedidos
+- Função de listar pedidos:
+![[Pasted image 20251007082252.png]]
+
+### Etapa 2: Adicionando itens aos pedidos
+- Em Schemas, crie o schema de itens dos pedidos
+![[Pasted image 20251007083107.png]]
+- Crie a função de adicionar item ao pedido em order routes
+![[Pasted image 20251007101742.png]]
+- Em models, na classe Pedido, crie a função de calculo de preços
+![[Pasted image 20251007100819.png]]
+- Continuando em models, importe a biblioteca de relationship
+![[Pasted image 20251007095647.png]]
+- Na classe Pedido, você vai criar uma variável `itens` que vai receber o relationship
+![[Pasted image 20251007100153.png]]
+
+- Agora você vai mandar as alterações para o banco de dados, via Alembic
+No terminal, escreva:
+`alembic revision --autogenerate -m 'adicionar itens no pedido'`
+e depois escreva:
+`alembic upgrade head`
+
+## Finalizando o Projeto
+### Etapa 1: Rota de remover itens
+![[Pasted image 20251008091655.png]]
+### Etapa 2: Finalizar pedido
+![[Pasted image 20251008092710.png]]
+### Etapa 3: Visualizando um pedido de um usuário
+![[Pasted image 20251008093807.png]]
+### Etapa 4: Visualizando todos os pedidos de um usuário
+![[Pasted image 20251008094503.png]]
+### Etapa 5: Schema de respostas
+![[Pasted image 20251008095423.png]]
+- Alterações da etapa 4:
+  ![[Pasted image 20251008100303.png]]
