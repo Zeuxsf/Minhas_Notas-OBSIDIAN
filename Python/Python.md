@@ -1549,6 +1549,14 @@ Vai salvar os dados no seu DB caso os dados sejam válidos, e logo após vai red
 
 # FAST API - Criador de API´S 
 obs: Esse tutorial vai ser para um projeto específico, para aprendizado, oque vai ser interessante é aprender com ele e depois criar as próprias rotas, bancos e etc.
+
+instalar uvicorn, sqlachemy, fastapi, passlib[bcrypt] e outros, presta atenção!
+pydantic
+python-jose
+
+pip install bcrypt==4.0.1
+pip install passlib[bcrypt]
+
 ## Base 
 - Como criar a base da API?
 ![[Pasted image 20250924083804.png]]
@@ -1785,3 +1793,126 @@ e depois escreva:
 ![[Pasted image 20251008095423.png]]
 - Alterações da etapa 4:
   ![[Pasted image 20251008100303.png]]
+# Python UV - Gerenciador de Pacotes
+
+## Oque o UV faz de melhor?
+- Instalação de pacotes e resolução de dependências extremamente rápidas
+- Compatível com ferramentas e fluxos de trabalho Python existentes
+- Gerenciamento de ambiente virtual integrado
+- Suporte a padrões modernos de embalagem
+- Bloqueio de dependência confiável e ambientes reproduzíveis
+- Operação com eficiência de memória, especialmente para grandes projetos
+
+## Principais diferenças com os concorrentes
+- ![[Pasted image 20251026212000.png]]
+- ![[Pasted image 20251026212052.png]]
+### Diferenças dos comando UV com os comandos PIP
+- ![[Pasted image 20251026222507.png]]
+
+## Instalando o UV ( Windows )
+- Cole esse código no terminal powershell: 
+`$ powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+obs: caso tenha problemas na instalação, retire o `$
+
+## Iniciando projetos no UV
+
+### Criando projeto
+- Dentro da pasta escolhida, abra um terminal e execute o seguinte comando:
+`$ uv init nome_do_projeto`
+- O UV vai iniciar um projeto com as seguintes características:
+![[Pasted image 20251026212754.png]]
+
+### Adicionando pacotes / criando ambiente virtual
+
+- O UV combina a criação do ambiente e a instalação da dependência em um único comando: `uv add`:
+`uv add lib_para_baixar`
+
+- Ele vai baixar a lib desejada e criar o ambiente virtual automaticamente
+![[Pasted image 20251026214900.png]]
+- Na próxima vez que você baixar uma lib, ele atualizará todas as libs que precisarem de atualização, mantendo seu programa sempre na última versão
+### Removendo pacotes
+
+- Para remover algum pacote no ecossistema UV, use:
+`uv remove nome_do_pacote`
+
+### Atualizando versão do Python no Projeto
+
+- ![[Pasted image 20251026215406.png]]
+## Oque é o UV lock?
+
+Os arquivos de bloqueio (`uv.lock`) são uma parte essencial do gerenciamento de dependências no UV. Quando você executa comandos `uv add` para instalar dependências, o UV gera e atualiza automaticamente um arquivo `uv.lock`. Esse arquivo de bloqueio tem várias finalidades importantes:
+
+- Ele registra as versões exatas de todas as dependências e suas subdependências que foram instaladas.
+- Ele garante compilações reproduzíveis ao "bloquear" as versões de dependência em diferentes ambientes.
+- Isso ajuda a evitar o "inferno das dependências", mantendo versões consistentes dos pacotes.
+- Isso acelera as instalações, pois o UV pode usar as versões bloqueadas em vez de resolver as dependências novamente.
+
+### A diferença do UV lock com o requirements.txt
+
+- ![[Pasted image 20251026220612.png]]
+## Atualização de dependências
+
+- ![[Pasted image 20251026222023.png]]
+
+## Dependências opcionais
+ 
+- ![[Pasted image 20251026222132.png]]
+
+## Grupos de dependência
+
+- ![[Pasted image 20251026222257.png]]
+Servem para separar suas dependências por grupo e instalar elas de uma quando houver necessidade
+
+
+# PySide6 (PyQT) - Interface Gráfica Profissional
+==pip install pyside6==
+
+## Base
+### Raiz do projeto
+- Arquivos iniciais necessários: 
+![[Pasted image 20251022094242.png]]
+- Em `qt_core.py` você vai importar as seguintes libs
+![[Pasted image 20251022094526.png]]
+- E em `main.py`, importe
+![[Pasted image 20251022094837.png]]
+
+### Criando a primeira janela
+- Em `main.py` escreva o seguinte código
+![[Pasted image 20251022101324.png]]
+Vai criar a primeira janelinha do projeto
+### Setando os parâmetros da janela
+- Em `ui_principal.py`, escreva
+![[Pasted image 20251022102433.png]]
+Vai setar o tamanho da janela quando ela é criada e o menor tamanho que ela pode ter
+
+- Agora em `main.py`, na classe de MainWindow, você vai adicionar os argumentos de UI
+![[Pasted image 20251022102646.png]]
+
+- Setando a cor de fundo da janela. No arquivo de UI, você vai criar o frame principal e setar ele como padrão
+![[Pasted image 20251022103647.png]]
+obs: A cor é em hexadecimal, só pesquisar no google os códigos de cores
+
+- Setando título da janela
+![[Pasted image 20251023085935.png]]
+
+## Criando Widgets
+
+### Barras
+- Criando sidebar
+![[Pasted image 20251022105628.png]]
+
+- Top bar
+![[Pasted image 20251024083429.png]]
+- Bottom bar
+![[Pasted image 20251024083749.png]]
+obs: A localização dela é feita automaticamente na hora de adicionar o widget no layout vertical
+### Label
+
+- Label na top bar
+ ![[Pasted image 20251024090308.png]]
+## QtDesigner
+dica: Geralmente se encontra dentro da lib do pyside 6, no momento que você instala ele pelo pip
+dica2: Acredito que eu irei aprender mais usando a aplicação do que anotando aqui, mas trarei oque for interessante
+### Pages
+- Setando paginas
+![[Pasted image 20251024110446.png]]
